@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="resources/js/redirect.js"></script>
+        <script type="text/javascript" src="resources/js/apps.js"></script>
+        <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+    </head>
+<body>
+    <div class="title">
+        This is an example of an automatic redirect to the native app OR to the App Store / Play Store.
+    </div>
+    <div class="subtitle">
+        Redirecting to: <span id='appname'>?</span> app.
+    </div>
+    <div class="note">
+        NOTE: In Chrome for Android, if the user writes the url manually, it assumes that he does <b>not</b> wish to be redirected outside of the browser. So you want to be redirected to this link or have clicked a link to this url.
+    </div>
+    <script>
+    // You have the whole queryString ready for you here in a key->value form.
+    // In the edge case where there are multiple values, the value is an array.
+    var qs = AppRedirect.queryString;
+
+	document.getElementById('appname').innerHTML = qs['app'];
+	
+	var theApp = window.sypportedApps[qs['app']];
+	//alert(qs['app']+JSON.stringify(theApp, null, '  '));
+	if (theApp) {
+	    // Here we initiate the redirect process
+	    AppRedirect.redirect(theApp);
+	} else {
+		//window.top.location.replace("https://www.telstra.com.au/mobile-phones/moreonyourmobile/apps");
+	}
+    </script>
+</body>
+</html>
