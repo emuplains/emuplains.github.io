@@ -36,7 +36,12 @@
          * @public
          * */
         queryString: queryString,
-
+		unknownAppPage:false,//Set it in html
+		showUnknownAppPage:function() {
+			if (this.unknownAppPage) {
+				window.location.replace(this.unknownAppPage);
+			}
+		},
         redirect: function (options) {
 
             var hasIos = !!(options.iosApp || options.iosAppStore);
@@ -126,7 +131,8 @@
                 }
 
             } else {
-                console.log('Unknown platform, nothing to do');
+                //console.log('Unknown platform, nothing to do');
+				this.showUnknownAppPage();
             }
 
         }
