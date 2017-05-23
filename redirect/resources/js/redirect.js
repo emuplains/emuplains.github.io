@@ -115,7 +115,7 @@
                 var intent = options.android;
                 var intentUrl = 'intent://' + intent.host + '#Intent;' +
                             'scheme=' + encodeURIComponent(intent.scheme) + ';' + 
-                            'package=' + encodeURIComponent(intent.package) + ';' + 
+                            'package=' + encodeURIComponent(queryString['package']||intent.package) + ';' + 
                             (intent.action ? 'action=' + encodeURIComponent(intent.action) + ';': '') + 
                             (intent.category ? 'category=' + encodeURIComponent(intent.category) + ';': '') + 
                             (intent.component ? 'component=' + encodeURIComponent(intent.component) + ';': '') + 
