@@ -11,7 +11,6 @@ if (extraParameters.length>0) {
 } else {
 	extraParameters = '';
 }
-console.log(extraParameters);
 window.sypportedApps = {
 	'24x7':{
         iosApp: 't24x7://launch?'+extraParameters,
